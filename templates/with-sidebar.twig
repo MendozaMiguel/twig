@@ -1,0 +1,17 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+  <div class='row'>
+    <div class="col-xs-8">
+      {% block main %}{% endblock %}
+    </div>
+    <div class="col-xs-4">
+      <h1>Ma sidebar</h1>
+      <p>
+        lorempdsk sndjknzjazdnzkldn dsqldqslkd, dsqdk,lk,lzald zlak,zdl,a ifds qsdazdzd
+      </p>
+      {% block sidebar %}{% endblock %}
+
+    </div>
+  </div>
+{% endblock content %}

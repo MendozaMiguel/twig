@@ -1,6 +1,7 @@
 <?php
 
 require_once '/vendor/autoload.php';
+require 'MonExtension.php';
 
 
 //routing
@@ -65,9 +66,19 @@ $twig = new Twig_Environment($loader,[
   'cache' => false, // __DIR__. '/tmp'
 ]);
 
-$twig-> addFunction(new Twig_SimpleFunction('markdown', function($value){
-  return 'Nom des chambres : ' . $value;
-}));
+// $twig-> addFunction(new Twig_SimpleFunction('markdown', function($value){
+//   return \Michelf\MarkdownExtra::defaultTransform($value);
+// }, ['is_safe' => ['html']]));
+
+// $twig -> addFilter(new Twig_SimpleFilter('markdown', function($value){
+//   return \Michelf\MarkdownExtra::defaultTransform($value);
+// }, ['is_safe' => ['html']]));
+
+$twig->addExtension(new MonExtension());
+
+$twig->addExtension(new Twig_Extensions_Extension_Text());
+
+
 
 switch ($page) {
   case 'contact':

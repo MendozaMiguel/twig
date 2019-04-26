@@ -1,11 +1,17 @@
-{% extends "layout.twig" %}
+{% extends "with-sidebar.twig" %}
 
 {% block head %}
   <title>
     bienvenue dans la page HOME</title>
 {% endblock %}
 
-{% block content %}
+{% block sidebar %}
+  <h4>Chambres Test Sidebar</h4>
+  <p>zzndjzndz zdnjzndj n zdnzjndjznndk zjnjnjnzd jnzkjndjknz jkzndkjnz jnzkndkzn jnzkjdnkzjnd jknzdnknzd jnnnn</p>
+  {{parent()}}
+{% endblock %}
+
+{% block main %}
   <h1>PAGE HOME</h1>
 
   <div class="row">
@@ -14,12 +20,22 @@
         <div class="card" style="width: 18rem; margin-left:30px; margin-bottom: 30px;">
           <img alt="{{chambre.image}}" class="card-img-top" src="public/images/img_{{chambre.image}}">
           <div class="card-body">
-            <h5 class="card-title">{{markdown( chambre.name)}}</h5>
-            <p class="card-text">{{chambre.description}}</p>
-            <a class="btn btn-primary" href="#">Reserver</a>
+            <h5 class="card-title">Nom de Chambres :
+              {{loop.index}}
+              {{chambre.name | markdown}}
+            </h5>
+            <p class="card-text">{{chambre.description | striptags | truncate(40,true, '...')}}</p>
+            <a class="btn btn-primary" href="#">Voir plus</a>
           </div>
         </div>
       </div>
+      {# {% if loop.index % 6 == 0 %} #}
+      {% if loop.index is divisible by(3) %}
+        {# Or force in class bootstrap col-xs-4 #}
+      </div>
+      <div class="row">
+      {% endif %}
+
     {% endfor %}
   </div>
 {% endblock %}
