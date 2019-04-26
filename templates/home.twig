@@ -1,0 +1,25 @@
+{% extends "layout.twig" %}
+
+{% block head %}
+  <title>
+    bienvenue dans la page HOME</title>
+{% endblock %}
+
+{% block content %}
+  <h1>PAGE HOME</h1>
+
+  <div class="row">
+    {% for chambre in chambres %}
+      <div class="col-xs">
+        <div class="card" style="width: 18rem; margin-left:30px; margin-bottom: 30px;">
+          <img alt="{{chambre.image}}" class="card-img-top" src="public/images/img_{{chambre.image}}">
+          <div class="card-body">
+            <h5 class="card-title">{{markdown( chambre.name)}}</h5>
+            <p class="card-text">{{chambre.description}}</p>
+            <a class="btn btn-primary" href="#">Reserver</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
