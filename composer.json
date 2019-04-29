@@ -1,7 +1,10 @@
 {
-    "require": {
-        "twig/twig": "^2.0",
-        "michelf/php-markdown": "^1.8",
-        "twig/extensions": "^1.5"
-    }
+  "require": {
+    "twig/twig": "^2.0",
+    "michelf/php-markdown": "^1.8",
+    "twig/extensions": "^1.5",
+    "symfony/asset": "^3.3",
+    "kriswallsmith/assetic": "^1.4",
+    "twbs/bootstrap": "4.3.1"
+  }
 }

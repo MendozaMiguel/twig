@@ -1,0 +1,6 @@
+.logo {
+  background-image: url('/test-twig/public/assets/images/logo.png');
+  height: 200px;
+  width: 200px;
+  border: 1px solid green;
+}

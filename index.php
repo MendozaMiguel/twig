@@ -64,6 +64,7 @@ function getChambres(){
 $loader = new Twig_Loader_Filesystem(__DIR__. '/templates');
 $twig = new Twig_Environment($loader,[
   'cache' => false, // __DIR__. '/tmp'
+  'debug' => true,
 ]);
 
 // $twig-> addFunction(new Twig_SimpleFunction('markdown', function($value){
@@ -78,14 +79,23 @@ $twig->addExtension(new MonExtension());
 
 $twig->addExtension(new Twig_Extensions_Extension_Text());
 
+$twig->addExtension(new Twig_Extension_Debug());
+
+$twig->addGlobal('current_page', $page);
 
 
 switch ($page) {
   case 'contact':
-    echo $twig->render('contact.twig');
+    echo $twig->render('contact.twig', ['name'=>'Marc', 'email'=>'test@test.fr']);
     break;
   case 'home':
     echo $twig->render('home.twig', ['chambres' => getChambres()]);
+    break;
+  case 'test':
+    echo $twig->render('01-atoms/logo/logo.twig');
+    break;
+  case 'test2':
+    echo $twig->render('05-pages/chambres.twig');
     break;
   default:
     header('HTTP/1.0 404 NOT FOUND');

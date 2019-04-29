@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>My test Twig</title>
+    <link href="/public/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      {% include "./01-atoms/module-tpl.twig" with {'tpl': 'logo'} %}
+    </div>
+    <div class="alert alert-primary" role="alert">
+      A simple primary alert—check it out!
+    </div>
+    <script src="/public/assets/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+  </body>
+</html>

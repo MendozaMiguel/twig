@@ -1,4 +1,5 @@
 {% extends "layout.twig" %}
+{% import "form.twig" as form %}
 
 {% block head %}
   <title>
@@ -7,8 +8,18 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Me contacter</h1>
-  <p>lqsdqsddqsdsdsqdsqdlmlkjnsjlkqnlkqn
-          qskm,kql,sklq,s,l,qsl
-          kjnbksnNQSQNs</p>
+  {# {{dump(form)}} #}
+  <h1>Me contacter
+    {{current_page}}</h1>
+  <p>lqsdqsd dqsdsds qdsqdlml kjnsjlkq nlkqn qskm,kql,sklq,s,l,qsl kjnbksn NQSQNs</p>
+  <form action="?p=contact" method="post">
+    <div class="row">
+      {{ form.input('name','votre nom',name, { class:'col-xs' }) }}
+      {{ form.input('email','votre email',email, { class:'col-xs', type:'email' }) }}
+    </div>
+    {{ form.textarea('message','votre message') }}
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Envoyer</button>
+    </div>
+  </form>
 {% endblock %}

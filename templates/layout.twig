@@ -12,14 +12,17 @@
     {% block head %}{% endblock %}
   </head>
   <body>
-    <nav class="nav">
-      <a class="nav-link active" href="#">Active</a>
-      <a class="nav-link" href="#">Link</a>
-      <a class="nav-link" href="#">Link</a>
-      <a aria-disabled="true" class="nav-link disabled" href="#" tabindex="-1">Disabled</a>
-    </nav>
-
-    {% block content %}{% endblock %}
+    <ul class="nav">
+      <li class="nav-item {{ activeClass('home') }}">
+        <a class="nav-link active" href="index.php?p=home">home</a>
+      </li>
+      <li class="nav-item {{ activeClass('contact') }}">
+        <a class="nav-link" href="index.php?p=contact">contact</a>
+      </li>
+    </ul>
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
