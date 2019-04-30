@@ -95,7 +95,7 @@ switch ($page) {
     echo $twig->render('01-atoms/link-nav/link.twig');
     break;
   case 'test2':
-    echo $twig->render('05-pages/chambres.twig');
+    echo $twig->render('05-pages/base.twig');
     break;
   default:
     header('HTTP/1.0 404 NOT FOUND');
