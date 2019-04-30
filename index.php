@@ -92,7 +92,7 @@ switch ($page) {
     echo $twig->render('home.twig', ['chambres' => getChambres()]);
     break;
   case 'test':
-    echo $twig->render('01-atoms/logo/logo.twig');
+    echo $twig->render('01-atoms/link-nav/link.twig');
     break;
   case 'test2':
     echo $twig->render('05-pages/chambres.twig');
